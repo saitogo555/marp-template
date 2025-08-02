@@ -1,0 +1,10 @@
+{
+  "name": "marp-template",
+  "version": "1.0.0",
+  "description": "Marp custom theme template for Go Saito",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Go Saito",
+  "license": "MIT"
+}
