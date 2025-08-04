@@ -1,9 +1,15 @@
 /* @theme saitogo */
 
+@font-face {
+	font-family: "NotoSansJP";
+	src: url("assets/NotoSansJP-VariableFont_wght.ttf") format("truetype");
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	color: #222222;
+	font-family: "NotoSansJP", sans-serif;
 	box-sizing: border-box;
 }
 
