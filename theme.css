@@ -39,6 +39,14 @@ section::before {
 	opacity: 0.5;
 }
 
+section[data-marpit-advanced-background="content"][data-marpit-advanced-background-split="right"] {
+  border-right: none;
+}
+
+section[data-marpit-advanced-background="content"][data-marpit-advanced-background-split="left"] {
+	border-left: none;
+}
+
 h1 {
 	font-size: 4rem;
 	font-weight: bold;
