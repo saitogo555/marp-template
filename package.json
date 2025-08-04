@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Marp custom theme template for Go Saito",
   "scripts": {
-    "serve": "marp --server ."
+    "serve": "marp --server ./src --theme ./theme.css"
   },
   "author": "Go Saito",
   "license": "MIT",
