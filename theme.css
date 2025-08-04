@@ -70,3 +70,8 @@ ul, ol {
 	margin-bottom: 1rem;
 	padding-left: 2rem;
 }
+
+img {
+	display: block;
+	margin: 0 auto;
+}
