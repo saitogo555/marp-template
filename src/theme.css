@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: "NotoSansJP";
-	src: url("./assets/NotoSansJP-VariableFont_wght.ttf") format("truetype");
+	src: url("./fonts/NotoSansJP-VariableFont_wght.ttf") format("truetype");
 }
 
 * {
