@@ -38,7 +38,7 @@ theme: saitogo
 
 ## 画像
 
-![h:550](./images/example.jpg)
+![h:550](https://placehold.jp/640x360.png)
 
 ---
 
@@ -46,7 +46,7 @@ theme: saitogo
 
 左側に背景画像
 
-![w:500 bg left](./images/example.jpg)
+![w:500 bg left](https://placehold.jp/640x360.png)
 
 ---
 
@@ -54,7 +54,7 @@ theme: saitogo
 
 右側に背景画像
 
-![w:500 bg right](./images/example.jpg)
+![w:500 bg right](https://placehold.jp/640x360.png)
 
 ---
 
@@ -62,7 +62,7 @@ theme: saitogo
 
 背景画像サイズをスライドにフィット
 
-![bg fit](./images/example.jpg)
+![bg fit](https://placehold.jp/640x360.png)
 
 ---
 
@@ -70,4 +70,4 @@ theme: saitogo
 
 背景画像サイズをスライドにカバー
 
-![bg cover](./images/example.jpg)
+![bg cover](https://placehold.jp/640x360.png)
