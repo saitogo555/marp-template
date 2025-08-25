@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Marp custom theme template for Go Saito",
   "scripts": {
-    "serve": "marp --server --theme ./src/theme.css ./src",
-    "build:pdf": "marp --pdf --allow-local-files --theme ./src/theme.css ./src/slide.md -o ./dist/slide.pdf"
+  "serve": "marp -s ./ --theme ./theme.css",
+  "build:html": "marp ./sample.md --theme ./theme.css -o ./dist/sample.html",
+  "build:pdf": "marp ./sample.md --pdf --pdf-notes --pdf-outlines --allow-local-files --theme ./theme.css -o ./dist/sample.pdf",
+  "build:pptx": "marp ./sample.md --pptx --pptx-editable --allow-local-files --theme ./theme.css -o ./dist/sample.pptx"
   },
   "author": "Go Saito",
   "license": "MIT",
