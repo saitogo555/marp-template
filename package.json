@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "Marp custom theme template for Go Saito",
   "scripts": {
-  "serve": "marp -s ./ --theme ./theme.css",
-  "build:html": "marp ./sample.md --theme ./theme.css -o ./dist/sample.html",
-  "build:pdf": "marp ./sample.md --pdf --pdf-notes --pdf-outlines --allow-local-files --theme ./theme.css -o ./dist/sample.pdf",
-  "build:pptx": "marp ./sample.md --pptx --pptx-editable --allow-local-files --theme ./theme.css -o ./dist/sample.pptx"
+    "serve": "marp -s ./ --theme ./theme.css",
+    "build:html": "mkdir -p dist && marp sample.md --allow-local-files --html --theme ./theme.css -o dist/sample.html",
+    "build:pdf": "mkdir -p dist && marp sample.md --allow-local-files --pdf --theme ./theme.css -o dist/sample.pdf",
+    "build:pptx": "mkdir -p dist && marp sample.md --allow-local-files --pptx --theme ./theme.css -o dist/sample.pptx",
+    "build:all": "npm run build:html && npm run build:pdf && npm run build:pptx"
   },
   "author": "Go Saito",
   "license": "MIT",
   "devDependencies": {
-    "@marp-team/marp-cli": "^4.2.2"
+    "@marp-team/marp-cli": "^4.2.3"
   }
 }
