@@ -16,19 +16,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
-        run: npm ci
+        run: bun install
 
       - name: Build HTML for Pages
         run: |
           mkdir -p dist
-          npx marp sample.md --allow-local-files --html --theme ./theme.css -o dist/index.html
+          bunx marp sample.md --allow-local-files --html --theme ./theme.css -o dist/index.html
 
       - name: Upload artifact for GitHub Pages
         # Use v4 (newer releases avoid using deprecated upload-artifact v3 internally)
