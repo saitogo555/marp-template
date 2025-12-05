@@ -31,7 +31,8 @@ jobs:
           npx marp sample.md --allow-local-files --html --theme ./theme.css -o dist/index.html
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+        # Use v4 (newer releases avoid using deprecated upload-artifact v3 internally)
+        uses: actions/upload-pages-artifact@v4
         with:
           path: 'dist'
 
@@ -43,4 +44,6 @@ jobs:
       id-token: write
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        id: deployment
+        # Use v4 which is current and compatible with the artifact APIs
+        uses: actions/deploy-pages@v4
