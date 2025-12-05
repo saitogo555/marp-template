@@ -382,10 +382,11 @@ section.content-image-right h2 {
 
 section.content-image-right p:has(img) {
   position: absolute;
-  right: 1rem;
+  right: 0;
   top: var(--h2-top-offset);
-  bottom: 1rem;
+  bottom: 0;
   width: calc(50% - 2rem);
+  background-color: #f8f8f8;
 }
 
 section.content-image-right p:has(img) img {
@@ -407,11 +408,11 @@ section.content-image-left h2 {
 
 section.content-image-left p:has(img) {
   position: absolute;
-  left: 1rem;
+  left: 0;
   top: var(--h2-top-offset);
-  bottom: 1rem;
+  bottom: 0;
   width: calc(50% - 2rem);
-  display: flex;
+  background-color: #f8f8f8;
 }
 
 section.content-image-left p:has(img) img {
