@@ -4,317 +4,330 @@
  */
 
 @import "default";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+
 
 :root {
-  /* アクセントカラー（グラデーション用） */
-  --gradient-start: oklch(70.7% 0.165 254.624);
-  --gradient-mid: oklch(62.7% 0.265 303.9);
-  --gradient-end: oklch(65.6% 0.241 354.308);
-  --accent-blue: #4a7dff;
-  --accent-purple: #9b59b6;
-  --accent-pink: #e74c8c;
+  /* アクセントカラー */
+  --accent-blue: oklch(70.7% 0.165 254.624);
+  --accent-purple: oklch(62.7% 0.265 303.9);
+  --accent-pink: oklch(65.6% 0.241 354.308);
 
   /* グレースケール */
-  --gray-darkest: #000000;
   --gray-dark: #222222;
   --gray-medium: #434343;
   --gray-light: #595959;
-  --gray-lighter: #646464;
-  --gray-lightest: #999999;
 
-  /* 基本カラー */
-  --white: #ffffff;
-  --black: #000000;
-
-  /* 背景カラー */
-  --bg-default: #ffffff;
+  /* 背景色 */
+  --bg-base: #ffffff;
   --bg-accent: #f5f5f7;
-  --bg-accent-code: #e8e8ec;
+  --bg-code: #e8e8ec;
 
-  /* ボーダー */
-  --border-color: #d9d9d9;
-
-  /* フォントサイズ変数 */
+  /* フォントサイズ */
   --font-size-title: 4rem;
   --font-size-large: 2.75rem;
   --font-size-medium: 2rem;
   --font-size-body: 1.75rem;
   --font-size-small: 1.5rem;
   --font-size-caption: 1.25rem;
-  --font-size-note: 1rem;
 
-  /* 行間変数 */
+  /* 行間 */
   --line-height-tight: 1.15;
   --line-height-normal: 1.3;
   --line-height-loose: 1.5;
 
-  /* レイアウト */
+  /* レイアウト／サイズ */
   font-size: 16px;
-  width: 1280px;
-  height: 720px;
-
-  /* h2 の高さと周囲余白の合計（画像の最大高さ算出用） */
-  /* 使い方: 画像の max-height = calc(100% - var(--h2-block-height)) */
-  --h2-block-height: calc(var(--font-size-large) * var(--line-height-tight) + 1.25rem);
-
-  /* 画像レイアウトで top を決めるためのオフセット（既存 top と合わせる） */
-  --h2-top-offset: calc(var(--font-size-large) * var(--line-height-tight) + 0.25rem + 1rem + 1px);
+  width: 1280px; /* キャンバスの幅 */
+  height: 720px; /* キャンバスの高さ */
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: var(--gray-dark);
   font-family: "Noto Sans JP", sans-serif;
-  box-sizing: border-box;
+  color: var(--gray-dark);
 }
 
-/* ========================================
-   基本セクションスタイル
-   ======================================== */
-
+/*
+========================================
+セクションスタイル
+========================================
+*/
 section {
-  padding: 1rem;
-  border: 0.5rem solid;
-  border-image: linear-gradient(
-      135deg,
-      var(--gradient-start),
-      var(--gradient-mid),
-      var(--gradient-end)
-    )
-    1;
-  background-color: var(--bg-default);
+  --section-border-width: 0.5rem;
+
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: flex-start;
-  position: relative;
+  padding: 1rem;
+  padding-top: calc(
+    var(--font-size-large) * var(--line-height-tight) +
+      var(--section-border-width) + 1px + 1rem
+  );
+  border: var(--section-border-width) solid;
+  border-image: linear-gradient(
+      135deg,
+      var(--accent-blue),
+      var(--accent-purple),
+      var(--accent-pink)
+    )
+    1;
+  background-color: var(--bg-base);
+
+  & h2:first-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+  }
+
+  &::before {
+    display: block;
+    position: absolute;
+    width: calc(var(--font-size-large) * var(--line-height-tight));
+    height: calc(var(--font-size-large) * var(--line-height-tight));
+    top: 0.25rem;
+    right: 0.5rem;
+    z-index: 999;
+    content: "";
+    background-image: url(https://saitogo.me/images/logo.webp);
+    background-size: contain;
+    opacity: 0.1;
+  }
+
+  &::after {
+    display: flex;
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    width: calc(var(--font-size-large) * var(--line-height-tight));
+    height: calc(var(--font-size-large) * var(--line-height-tight));
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    color: var(--gray-light);
+    font-size: var(--font-size-caption);
+  }
 }
 
-section::before {
-  content: "";
-  display: block;
-  width: 2.5rem;
-  height: 2.5rem;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-image: url(https://saitogo.me/images/logo.webp);
-  background-size: contain;
-}
-
-/* ========================================
-   見出しスタイル
-   ======================================== */
-
-h1 {
-  font-size: var(--font-size-title);
+/* \
+========================================
+見出しスタイル
+========================================
+*/
+section h1,
+section h2,
+section h3,
+section h4,
+section h5,
+section h6 {
+  color: var(--gray-dark);
   font-weight: bold;
+
+  strong {
+    color: var(--accent-blue);
+  }
+}
+
+section h1 {
+  font-size: var(--font-size-title);
   line-height: var(--line-height-tight);
   margin-bottom: 0.5rem;
 }
 
-h2 {
+section h2 {
   font-size: var(--font-size-large);
-  font-weight: bold;
+  line-height: var(--line-height-tight);
   margin-bottom: 1rem;
   border-bottom: solid 1px var(--gray-dark);
   padding-bottom: 0.25rem;
-  line-height: var(--line-height-tight);
+
+  & + :is(h3, h4, h5, h6) {
+    margin-top: 0;
+  }
 }
 
-h3 {
+section h3 {
   font-size: var(--font-size-medium);
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  line-height: var(--line-height-normal);
   margin-top: 1rem;
-  line-height: var(--line-height-normal);
+  margin-bottom: 0.5rem;
 }
 
-h4 {
+section h4 {
   font-size: var(--font-size-body);
-  font-weight: bold;
-  margin-bottom: 0.25rem;
+  line-height: var(--line-height-normal);
   margin-top: 0.75rem;
-  line-height: var(--line-height-normal);
+  margin-bottom: 0.25rem;
 }
 
-h5 {
+section h5 {
   font-size: var(--font-size-small);
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-  margin-top: 0.5rem;
   line-height: var(--line-height-normal);
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
-h6 {
+section h6 {
   font-size: var(--font-size-caption);
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-  margin-top: 0.5rem;
   line-height: var(--line-height-normal);
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
-/* 見出し内の強調テキストをアクセントカラーに */
-h1 > strong,
-h2 > strong,
-h3 > strong,
-h4 > strong,
-h5 > strong,
-h6 > strong {
-  color: var(--accent-blue);
-}
-
-/* ========================================
-   本文・テキストスタイル
-   ======================================== */
-
-p {
+/*
+========================================
+本文・テキストスタイル
+========================================
+*/
+section p {
   font-size: var(--font-size-body);
   line-height: var(--line-height-loose);
+
   margin-bottom: 0.75rem;
 }
 
-ul,
-ol {
+section ul,
+section ol {
   font-size: var(--font-size-body);
   line-height: var(--line-height-loose);
   margin-bottom: 0.75rem;
   padding-left: 2rem;
 }
 
-li {
-  padding-top: 0.25rem;
+section li {
+  margin-top: 0;
+
+  ul,
+  ol {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+  }
 }
 
-li ul,
-li ol {
-  margin-top: 0.25rem;
-  margin-bottom: 0;
+section strong {
+  font-weight: bold;
+  color: var(--accent-blue);
 }
 
-/* 強調・斜体 */
-strong {
-  font-weight: 700;
-  color: var(--gray-dark);
-}
-
-em {
+section em {
   font-style: italic;
 }
 
-/* 小さなテキスト */
-small {
-  font-size: var(--font-size-note);
-  color: var(--gray-light);
-}
+/*
+========================================
+コード・引用スタイル
+========================================
+*/
+section code {
+  background-color: var(--bg-code);
+  color: var(--gray-dark);
 
-/* ========================================
-   コード・引用スタイル
-   ======================================== */
-
-code {
-  background-color: var(--bg-accent-code);
-  color: var(--gray-darkest);
   padding: 0.1rem 0.3rem;
   border-radius: 4px;
+
   font-size: 0.9em;
 }
 
-pre,
-:is(pre, marp-pre) {
-  background-color: var(--bg-accent-code);
+section pre,
+section marp-pre {
+  background-color: var(--bg-code);
   font-size: var(--font-size-small);
   margin-bottom: 0.75rem;
-  border-radius: 8px;
   padding: 1rem;
+  border-radius: 8px;
+
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
 }
 
-pre code {
-  background-color: transparent;
-  padding: 0;
-}
-
-blockquote {
+section blockquote {
   font-size: var(--font-size-body);
   color: var(--gray-medium);
   border-left: 4px solid var(--accent-purple);
   padding-left: 1rem;
   margin: 0.75rem 0;
   font-style: italic;
+
+  &::before,
+  &::after {
+    display: none;
+  }
 }
 
-blockquote::before,
-blockquote::after {
-  display: none;
-}
-
-/* リンク */
-a {
+section a {
   color: var(--accent-blue);
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* ========================================
-   テーブルスタイル
-   ======================================== */
-
-table {
+/*
+========================================
+テーブルスタイル
+========================================
+*/
+section table {
   font-size: var(--font-size-small);
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 1rem;
 }
-
-thead th {
+section thead th {
   background-color: var(--bg-accent);
   color: var(--gray-dark);
-  border: 1px solid var(--border-color);
+  border: 1px solid #d9d9d9;
   padding: 0.5rem;
   font-weight: 600;
 }
 
-tbody td {
-  background-color: var(--white);
+section tbody td {
+  background-color: #ffffff;
   color: var(--gray-medium);
-  border: 1px solid var(--border-color);
+  border: 1px solid #d9d9d9;
   padding: 0.5rem;
 }
 
-/* ========================================
-   画像スタイル
-   ======================================== */
-
-img {
+/*
+========================================
+画像スタイル
+========================================
+*/
+section img {
   display: block;
 }
 
-/* ========================================
-   タイトルスライド
-   ======================================== */
-
+/*
+========================================
+タイトルスライド
+========================================
+*/
 section.title {
   display: flex;
+  position: relative;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   text-align: center;
+  padding: 1rem;
   border: none;
   border-image: none;
   background-image: linear-gradient(
     135deg,
-    var(--gradient-start),
-    var(--gradient-mid),
-    var(--gradient-end)
+    var(--accent-blue),
+    var(--accent-purple),
+    var(--accent-pink)
   );
 }
-
 section.title h1 {
-  color: var(--white);
+  color: #ffffff;
   line-height: var(--line-height-loose);
   margin-bottom: 1rem;
   padding: 0.5rem 2rem;
@@ -323,162 +336,152 @@ section.title h1 {
 }
 
 section.title h2 {
-  color: var(--white);
+  position: relative;
+  color: #ffffff;
   border-bottom: none;
 }
 
 section.title p {
-  color: var(--white);
+  color: #ffffff;
 }
 
-section.title::before {
-  display: none;
-}
-
-/* ========================================
-   セクションスライド（章区切り）
-   ======================================== */
-
+/*
+========================================
+セクションスライド
+========================================
+*/
 section.section {
-  background-color: var(--bg-accent);
-  padding: 2rem;
   justify-content: center;
   align-items: flex-start;
-}
+  padding: 1rem;
 
-section.section h2 {
-  border-bottom: none;
-}
-
-/* ========================================
-   画像レイアウト
-   ======================================== */
-
-section.only-image p:has(img) {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: calc(100% - var(--h2-block-height, 0px));
-
-  & img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  h2 {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
   }
 }
 
-/* ========================================
-   コンテンツ＋画像レイアウト
-   ======================================== */
-/* 右側に画像 */
-section.content-image-right {
-  padding-right: 50%;
-}
-
-section.content-image-right h2 {
-  width: calc(100vw - 4.6rem);
-}
-
-section.content-image-right p:has(img) {
-  position: absolute;
-  right: 0;
-  top: var(--h2-top-offset);
-  bottom: 0;
-  width: calc(50% - 2rem);
-  background-color: #f8f8f8;
-}
-
-section.content-image-right p:has(img) img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: right;
-}
-
-/* 左側に画像 */
-section.content-image-left {
-  padding-left: 50%;
-}
-
-section.content-image-left h2 {
-  width: calc(100vw - 4.6rem);
-  margin-left: calc(100% - (100vw - 4.6rem));
-}
-
-section.content-image-left p:has(img) {
-  position: absolute;
-  left: 0;
-  top: var(--h2-top-offset);
-  bottom: 0;
-  width: calc(50% - 2rem);
-  background-color: #f8f8f8;
-}
-
-section.content-image-left p:has(img) img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: right;
-}
-
-/* コンテンツ幅の調整 */
-section.content-30 {
+/*
+========================================
+画像レイアウト
+========================================
+*/
+/* 画像のみ */
+section.only-image {
   p:has(img) {
-    width: calc(70% - 2rem);
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100% - var(--h2-block-height, 0px));
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
-  &.content-image-right {
+}
+
+/*
+========================================
+コンテンツ＋画像レイアウト
+========================================
+*/
+/* 共通スタイル */
+section.content-image-right,
+section.content-image-left {
+  p:has(img) {
+    position: absolute;
+    top: calc(
+      var(--font-size-large) * var(--line-height-tight) +
+        var(--section-border-width) + 2px
+    );
+    bottom: 0;
+    width: calc(50% - 2rem);
+    background-color: #f8f8f8;
+  }
+
+  &.content-30 p:has(img) {
+    width: calc(70% - 1rem);
+  }
+  &.content-40 p:has(img) {
+    width: calc(60% - 1rem);
+  }
+  &.content-60 p:has(img) {
+    width: calc(40% - 1rem);
+  }
+  &.content-70 p:has(img) {
+    width: calc(30% - 1rem);
+  }
+  &.content-80 p:has(img) {
+    width: calc(20% - 1rem);
+  }
+
+  &.content-30.content-image-right {
     padding-right: 70%;
   }
-  &.content-image-left {
+  &.content-30.content-image-left {
     padding-left: 70%;
   }
-}
 
-section.content-40 {
-  p:has(img) {
-    width: calc(60% - 2rem);
-  }
-  &.content-image-right {
+  &.content-40.content-image-right {
     padding-right: 60%;
   }
-  &.content-image-left {
+  &.content-40.content-image-left {
     padding-left: 60%;
   }
-}
 
-section.content-60 {
-  p:has(img) {
-    width: calc(40% - 2rem);
-  }
-  &.content-image-right {
+  &.content-60.content-image-right {
     padding-right: 40%;
   }
-  &.content-image-left {
+  &.content-60.content-image-left {
     padding-left: 40%;
   }
-}
 
-section.content-70 {
-  p:has(img) {
-    width: calc(30% - 2rem);
-  }
-  &.content-image-right {
+  &.content-70.content-image-right {
     padding-right: 30%;
   }
-  &.content-image-left {
+  &.content-70.content-image-left {
     padding-left: 30%;
+  }
+
+  &.content-80.content-image-right {
+    padding-right: 20%;
+  }
+  &.content-80.content-image-left {
+    padding-left: 20%;
   }
 }
 
-section.content-80 {
+section.content-image-right {
+  padding-right: 50%;
+
   p:has(img) {
-    width: calc(20% - 2rem);
+    right: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: right;
+    }
   }
-  &.content-image-right {
-    padding-right: 20%;
-  }
-  &.content-image-left {
-    padding-left: 20%;
+}
+
+section.content-image-left {
+  padding-left: 50%;
+
+  p:has(img) {
+    left: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: right;
+    }
   }
 }
