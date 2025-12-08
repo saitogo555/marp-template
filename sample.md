@@ -2,194 +2,271 @@
 marp: true
 theme: saitogo
 paginate: true
-
-# Saitogo テーマ デモ
-### 全機能サンプル
-
 ---
 
 <!-- _class: title -->
-<!-- _paginate: skip -->
+<!-- _paginate: false -->
 
-# saitogo テーマ
+# Marpカスタムテーマ サンプル
 
-全クラス & レイアウトのデモ
+## saitogoテーマのプレビュー
+
+2025年12月9日最終更新
 
 ---
 
 <!-- _class: section -->
-<!-- _paginate: skip -->
+<!-- _paginate: false -->
 
-## セクション（章区切り）
+## セクションタイトル
 
----
-
-## h2 のボーダー
-
-このスライドはデフォルトの本文・見出しスタイルを示します。強調や斜体、small などのテキスト要素もここで確認できます。
-
-- **強調 (strong)** で重要な箇所を示す
-- *斜体 (em)* を併用
-- small は脚注や補足に最適
-
-> 引用は blockquote スタイルで表示されます。
+各セクションのタイトル用スライドとして使用する
 
 ---
 
-<!-- _class: content-image-right -->
-## 右に画像（デフォルト 50%）
+## H2 見出し (スライドタイトル)
 
-- 左にテキスト、右に画像を配置する基本パターン
+### H3 見出し
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+#### H4 見出し
 
-![プレースホルダ画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+##### H5 見出し
 
----
-
-<!-- _class: content-image-right content-30 -->
-## content-30 (テキスト30% / 右画像70%)
-
-- テキストを狭め、画像を広めに表示します。
-
-![大きい画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+###### H6 見出し
 
 ---
 
-<!-- _class: content-image-right content-40 -->
-## content-40 (テキスト40% / 右画像60%)
+## テキストスタイル
 
-画像領域が少し狭くなっています。
+これは通常の段落テキストです。Noto Sans JPフォントが適用され、読みやすい行間が設定されています。
 
-![中くらいの画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+**強調テキスト**はアクセントカラー（青）で表示されます。
 
----
+*イタリックテキスト*も使用できます。
 
-<!-- _class: content-image-right content-60 -->
-## content-60 (テキスト60% / 右画像40%)
-
-テキストを多く見せたい場面に。
-
-![小さめ画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+***強調イタリック***を組み合わせることもできます。
 
 ---
 
-<!-- _class: content-image-right content-70 -->
-## content-70 (テキスト70% / 右画像30%)
+## 見出しの強調表示
 
-よりテキスト寄りのレイアウト。
+### H3の**強調**表示
 
-![小さい画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+#### H4の**強調**表示
 
----
+##### H5の**強調**表示
 
-<!-- _class: content-image-right content-80 -->
-## content-80 (テキスト80% / 右画像20%)
-
-最もテキスト寄りの配置。
-
-![アイコン的画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+###### H6の**強調**表示
 
 ---
 
-<!-- _class: content-image-left -->
-## 左に画像（デフォルト 50%）
+## リストスタイル
 
-画像を左に置いたパターンも確認してください。
+### 箇条書きリスト
 
-![左画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+- 項目1
+- 項目2
+  - ネストされた項目
+  - ネストされた項目2
+- 項目3
 
----
+### 番号付きリスト
 
-<!-- _class: content-image-left content-30 -->
-## content-30（左画像 70% / テキスト 30%）
-
-画像が左、テキストが右に来るパターンです。
-
-![左大画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
-
----
-
-<!-- _class: content-image-left content-40 -->
-## content-40（左画像 60% / テキスト 40%）
-
-画像領域が少し狭くなっています。
-
-![左中画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+1. 最初の項目
+2. 2番目の項目
+   1. ネストされた番号付き
+   2. ネストされた番号付き2
+3. 3番目の項目
 
 ---
 
-<!-- _class: content-image-left content-60 -->
-## content-60（左画像 40% / テキスト 60%）
+## コードスタイル
 
-テキストを多く見せたい場面に。
+インラインコード: `const message = "Hello, World!";`
 
-![左小画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
+### コードブロック
 
----
-
-<!-- _class: content-image-left content-70 -->
-## content-70（左画像 30% / テキスト 70%）
-
-よりテキスト寄りのレイアウト。
-
-![左小さい画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
-
----
-
-<!-- _class: content-image-left content-80 -->
-## content-80（左画像 20% / テキスト 80%）
-
-最もテキスト寄りの配置。
-
-![左アイコン的画像](https://placehold.jp/CCCCCC/ffffff/400x300.jpg?text=Sample%0AImage)
-
----
-
-<!-- _class: only-image -->
-## 画像のみ
-
-![フルサイズ画像](https://placehold.jp/222222/ffffff/1280x720.png?text=Only%20Image)
-
----
-
-## 表（table）
-
-| 項目 | 説明 |
-|---:|:---|
-| content-xx | テキスト幅を比率で制御 |
-| p:has(img) | 画像を含む段落用のスタイル |
-
----
-
-## インラインコードとコードブロック
-
-: `const x = 10;`
-
-```js
-// ブロックコードの表示
-function hello() {
-  console.log('Hello, Saitogo theme!');
+```javascript
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+  return true;
 }
+
+greet("Marp");
+```
+
+```python
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
 ```
 
 ---
 
-## 箇条書きとネストリスト
+## 引用とリンク
 
-- 主要ポイント
-  - サブポイント A
-  - サブポイント B
-- もうひとつのポイント
+### 引用（Blockquote）
 
-1. 主要ポイント
-    1. サブポイント A
-    1. サブポイント B
-1. もうひとつのポイント
+> これは引用文です。左側に紫色のボーダーが表示され、
+> イタリック体で表示されます。
+
+### リンク
+
+[Marp公式サイト](https://marp.app/)にアクセスしてください。
+
+通常のテキストと[リンクテキスト](https://example.com)を混在させることができます。
+
+---
+
+## テーブルスタイル
+
+| 項目 | 説明 | 値 |
+|------|------|-----|
+| フォントサイズ | 本文 | 1.75rem |
+| 行間 | 通常 | 1.3 |
+| アクセント | 青 | oklch(70.7% 0.165 254.624) |
+| 背景 | ベース | #ffffff |
+
+---
+
+<!-- _class: only-image -->
+
+## 画像のみレイアウト
+
+![](https://picsum.photos/1200/600)
+
+---
+
+<!-- _class: content-image-right content-70 -->
+
+## 右画像30% + コンテンツ70%
+
+コンテンツ領域を広くとるレイアウトです。
+
+- より多くのテキストを表示可能
+- 画像は補助的な役割
+- 詳細な説明に適しています
+
+![](https://picsum.photos/400/400)
+
+---
+
+<!-- _class: content-image-right content-60 -->
+
+## 右画像40% + コンテンツ60%
+
+バランスの取れたレイアウトです。
+
+- テキストと画像のバランス
+- プレゼンテーション向き
+
+![](https://picsum.photos/500/400)
+
+---
+
+<!-- _class: content-image-right -->
+
+## 右画像50% + コンテンツ50%
+
+デフォルトでは50%ずつの分割です。
+
+- ポイント1
+- ポイント2
+
+![](https://picsum.photos/600/400)
+
+---
+
+<!-- _class: content-image-right content-40 -->
+
+## 右画像60% + コンテンツ40%
+
+画像を大きく表示するレイアウト。
+
+- 簡潔な説明
+
+![](https://picsum.photos/700/500)
+
+---
+
+<!-- _class: content-image-right content-30 -->
+
+## 右画像70% + コンテンツ30%
+
+画像中心のレイアウト。
+
+- 最小限のテキスト
+
+![](https://picsum.photos/800/500)
+
+---
+
+<!-- _class: content-image-left content-70 -->
+
+## 左画像30% + コンテンツ70%
+
+コンテンツ領域を広くとるレイアウトです。
+
+- より多くのテキストを表示可能
+- 画像は補助的な役割
+- 詳細な説明に適しています
+
+![](https://picsum.photos/400/400)
+
+---
+
+<!-- _class: content-image-left content-60 -->
+
+## 左画像40% + コンテンツ60%
+
+バランスの取れたレイアウトです。
+
+- テキストと画像のバランス
+- プレゼンテーション向き
+
+![](https://picsum.photos/500/400)
+
+---
+
+<!-- _class: content-image-left -->
+
+## 左画像50% + コンテンツ50%
+
+デフォルトでは50%ずつの分割です。
+
+- 説明文1
+- 説明文2
+
+![](https://picsum.photos/600/400)
+
+---
+
+<!-- _class: content-image-left content-40 -->
+
+## 左画像60% + コンテンツ40%
+
+画像を大きく表示するレイアウト。
+
+- 簡潔な説明
+
+![](https://picsum.photos/700/500)
+
+---
+
+<!-- _class: content-image-left content-30 -->
+
+## 左画像70% + コンテンツ30%
+
+画像中心のレイアウト。
+
+- 最小限のテキスト
+
+![](https://picsum.photos/800/500)
 
 ---
 
 <!-- _class: title -->
-<!-- _paginate: skip -->
+<!-- _paginate: false -->
 
-## 以上 — テーマ全体のデモ終了
+## サンプルは以上で終了
