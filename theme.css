@@ -277,6 +277,10 @@ tbody td {
 
 img {
   display: block;
+
+  &.emoji {
+    display: inline-block;
+  }
 }
 
 /*
