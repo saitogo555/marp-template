@@ -4,7 +4,7 @@
     "": {
       "name": "marp-template",
       "devDependencies": {
-        "@marp-team/marp-cli": "^4.2.2",
+        "@marp-team/marp-cli": "^4.2.3",
       },
     },
   },
