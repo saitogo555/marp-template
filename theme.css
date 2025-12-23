@@ -4,6 +4,7 @@
  */
 
 @import "default";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 
 :root {
   /* アクセントカラー */
@@ -367,7 +368,10 @@ section.content-image-right,
 section.content-image-left {
   p:has(img) {
     position: absolute;
-    top: calc(var(--font-size-large) * var(--line-height-tight) + var(--section-border-width) + 1px);
+    top: calc(
+      var(--font-size-large) * var(--line-height-tight) +
+        var(--section-border-width) + 1px
+    );
     bottom: 0;
     display: flex;
     justify-content: center;
